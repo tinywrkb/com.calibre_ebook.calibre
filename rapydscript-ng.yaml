@@ -1,0 +1,37 @@
+app-id: com.github.kovidgoyal.rapydscript-ng-updater
+runtime: org.kde.Platform
+runtime-version: 5.15-21.08
+sdk: org.kde.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.node18
+modules:
+  - name: rapydscript-ng
+    # TODO: implement update script
+    buildsystem: simple
+    build-options:
+      append-path: /usr/lib/sdk/node18/bin
+      build-args:
+        - --share=network
+      env:
+        XDG_CACHE_HOME: /run/build/rapydscript-ng/cache
+        npm_config_nodedir: /usr/lib/sdk/node18
+    build-commands:
+      - npm install
+      - pip3 install --verbose --exists-action=i --prefix=${FLATPAK_DEST} aiohttp --no-build-isolation
+      - fbt/node/flatpak-node-generator.py npm --xdg-layout -o rapydscript-ng-sources.json package-lock.json
+      - exit 1
+    sources:
+      - type: archive
+        url: https://github.com/kovidgoyal/rapydscript-ng/archive/v0.7.22/rapydscript-ng-0.7.22.tar.gz
+        sha256: 04bc3d1b59d24743bd54fde35cc02bb9bc0b0e5d053ef3072cd0682e02903bf7
+        x-checker-data:
+          type: anitya
+          project-id: 260078
+          stable-only: true
+          url-template: https://github.com/kovidgoyal/rapydscript-ng/archive/v$version/rapydscript-ng-$version.tar.gz
+      - type: git
+        url: https://github.com/flatpak/flatpak-builder-tools.git
+        branch: master
+        dest: fbt
+    cleanup:
+      - '*'
