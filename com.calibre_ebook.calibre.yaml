@@ -350,15 +350,11 @@ modules:
             url: https://github.com/rogerbinns/apsw/releases/download/3.36.0-r1/apsw-3.36.0-r1.zip
             sha256: 17355c39a8cdb9b9cd75b76d883b624c0dd05f80a6677c693b67c343c2381871
             x-checker-data:
-              # TODO: switch to json checker
               type: html
               url: https://github.com/rogerbinns/apsw/tags.atom
-              # NOTE: workaround for missing versions support, see https://github.com/flathub/flatpak-external-data-checker/issues/309
-              version-pattern: <title>(3.36[\d.]*)-r\d</title>
-             #version-pattern: <title>([\d.]+)-r\d</title>
-              # NOTE: version must match runtime's libsqlite3.so
-             #versions:
-             #  '<': 3.38.0
+              version-pattern: <title>([\d.]+)-r\d</title>
+              versions:
+                <: 3.37.0
               url-template: https://github.com/rogerbinns/apsw/releases/download/${version}-r1/apsw-${version}-r1.zip
 
       - name: python-beautifulsoup4
