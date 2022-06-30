@@ -304,7 +304,6 @@ modules:
           - /bin/pdfsig
           - /bin/pdftocairo
           - /bin/pdftops
-          - /bin/pdftotext
           - /bin/pdfunite
           - /share/man
         modules:
