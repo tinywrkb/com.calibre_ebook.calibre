@@ -6,7 +6,7 @@ index aa1013c..bf8927b 100644
  [tool.sip.project]
  sip-files-dir = "."
  {abi_version}
-+sip-include-dirs = [ '/app/lib/python/site-packages/PyQt5/bindings']
++sip-include-dirs = [ '/app/lib/python/site-packages/PyQt6/bindings']
  
  [tool.sip.bindings.pictureflow]
  headers = {ext.headers}

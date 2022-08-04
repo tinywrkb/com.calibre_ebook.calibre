@@ -7,13 +7,13 @@
 # TODO: add support for running tests
 app-id: com.calibre_ebook.calibre
 runtime: org.kde.Platform
-runtime-version: 5.15-21.08
+runtime-version: '6.3'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.node18
   - org.freedesktop.Sdk.Extension.openjdk
 base: com.riverbankcomputing.PyQt.BaseApp
-base-version: 5.15-21.08
+base-version: '6.3'
 command: calibre
 build-options:
   append-path: /usr/lib/sdk/node18/bin:/usr/lib/sdk/openjdk/bin
@@ -91,6 +91,7 @@ modules:
         PODOFO_INC_DIR: /app/include/podofo
         PODOFO_LIB_DIR: /app/lib/libpodofo.so
         QTWEBENGINEPROCESS_PATH: /app/bin/QtWebEngineProcess
+        QTWEBENGINE_CHROMIUM_FLAGS: --no-sandbox
         XDG_UTILS_INSTALL_MODE: system
     build-commands:
       - install -dm755 ${FLATPAK_DEST}/share/{applications,desktop-directories,icons/hicolor,mime/packages}
