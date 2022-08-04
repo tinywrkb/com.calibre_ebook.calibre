@@ -791,6 +791,19 @@ modules:
                     x-checker-data:
                       type: pypi
                       name: pycparser
+          - name: python-inflate64
+            buildsystem: simple
+            build-commands:
+              - sed -i '1 i\[metadata]\nname = inflate64\n' setup.cfg
+              - python setup.py build
+              - python setup.py install --skip-build --prefix=/app --root=/ --optimize=1
+            sources:
+              - type: archive
+                url: https://files.pythonhosted.org/packages/d9/3c/2d661662e55322725bde8c5c1bf90856bb9b09ec119a92ca61360f84b0f0/inflate64-0.3.0.tar.gz
+                sha256: 81fb8e690fbcb92e7d3e6769ec4c6fbfabb88aade677f61b2f4c99874538bf64
+                x-checker-data:
+                  type: pypi
+                  name: inflate64
 
       - name: python-pychm
         buildsystem: simple
