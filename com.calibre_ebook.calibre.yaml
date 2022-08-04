@@ -707,11 +707,13 @@ modules:
               type: pypi
               name: pycryptodomex
           - type: file
-            url: https://files.pythonhosted.org/packages/49/93/e45d3f8d2725ec448b9178b91791c2509d3a9b42d8984a22f576fe2f89be/pyppmd-1.0.0.tar.gz
-            sha256: 075c9bd297e3b0a87dd7aeabca7fee668218acbe69ecc1c6511064558de8840f
+            url: https://files.pythonhosted.org/packages/29/c5/942670ee881f9b0ac5d3a5fda6c1ba88d8c78c8aade8fd9c5de6ab87b67b/pyppmd-0.18.3.tar.gz
+            sha256: 6c74ce28213044e33a595279019e8d71512d5d8188826d106df9083f2b3006c4
             x-checker-data:
               type: pypi
               name: pyppmd
+              versions:
+                <: 0.19.0
           - type: file
             url: https://files.pythonhosted.org/packages/12/38/2d56ffd3f6e6d0e982ccb9e9fad4dac6626253bbad714aa0d74c66c0eb46/pyzstd-0.15.3.tar.gz
             sha256: ac4edab5d3955343e8f7f287e62cd2882907d46bcba4b406a1e9f84aa2887472
