@@ -1044,6 +1044,25 @@ modules:
                   type: pypi
                   name: pyxdg
 
+      - name: uchardet
+        buildsystem: cmake
+        config-opts:
+          - -DCMAKE_BUILD_TYPE=Release
+          - -DBUILD_BINARY=OFF
+          - -DBUILD_SHARED_LIBS=ON
+          - -DBUILD_STATIC=OFF
+        sources:
+          - type: archive
+            url: https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.7.tar.xz
+            sha256: 3fc79408ae1d84b406922fa9319ce005631c95ca0f34b205fad867e8b30e45b1
+            x-checker-data:
+              type: anitya
+              project-id: 9265
+              stable-only: true
+              url-template: https://www.freedesktop.org/software/uchardet/releases/uchardet-$version.tar.xz
+        cleanup:
+          - /share/man
+
 
 # - name: calibre-bin
 #   buildsystem: simple
