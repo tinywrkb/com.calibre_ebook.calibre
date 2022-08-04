@@ -105,8 +105,8 @@ modules:
       - python -m compileall ${FLATPAK_DEST}/lib/calibre
     sources:
       - type: archive
-        url: https://download.calibre-ebook.com/5.44.0/calibre-5.44.0.tar.xz
-        sha256: 6ffaa3eafd36a24355e5957f0f838db6db6d3456cfa17cb4d139fd94ebaf88ec
+        url: https://download.calibre-ebook.com/6.2.1/calibre-6.2.1.tar.xz
+        sha256: eae23824750360d4486aa6275364dd00926b1f363c50404171fcacefbf8f7476
         x-checker-data:
           is-main-source: true
           type: html
@@ -148,8 +148,8 @@ modules:
           - --disable-static
         sources:
           - type: archive
-            url: https://downloads.sourceforge.net/libmtp/libmtp-1.1.19.tar.gz
-            sha256: deb4af6f63f5e71215cfa7fb961795262920b4ec6cb4b627f55b30b18aa33228
+            url: https://downloads.sourceforge.net/libmtp/libmtp-1.1.20.tar.gz
+            sha256: c9191dac2f5744cf402e08641610b271f73ac21a3c802734ec2cedb2c6bc56d0
             x-checker-data:
               type: anitya
               project-id: 10017
@@ -288,8 +288,8 @@ modules:
           - -DENABLE_QT6=OFF
         sources:
           - type: archive
-            url: https://poppler.freedesktop.org/poppler-22.06.0.tar.xz
-            sha256: a0f9aaa3918bad781039fc307a635652a14d1b391cd559b66edec4bedba3c5d7
+            url: https://poppler.freedesktop.org/poppler-22.08.0.tar.xz
+            sha256: b493328721402f25cb7523f9cdc2f7d7c59f45ad999bde75c63c90604db0f20b
             x-checker-data:
               type: anitya
               project-id: 3686
@@ -515,8 +515,8 @@ modules:
                 --prefix=${FLATPAK_DEST} lxml --no-build-isolation --install-option=--multicore=${FLATPAK_BUILDER_N_JOBS}
             sources:
               - type: file
-                url: https://files.pythonhosted.org/packages/aa/23/bda4e9881090f0f5e33e2efe89aacfa0668eb6e1ab2de28591e2912d78d4/lxml-4.9.0.tar.gz
-                sha256: 520461c36727268a989790aef08884347cd41f2d8ae855489ccf40b50321d8d7
+                url: https://files.pythonhosted.org/packages/70/bb/7a2c7b4f8f434aa1ee801704bf08f1e53d7b5feba3d5313ab17003477808/lxml-4.9.1.tar.gz
+                sha256: fe749b052bb7233fe5d072fcb549221a8cb1a16725c47c37e42b0b9cb3ff2c3f
                 x-checker-data:
                   type: pypi
                   name: lxml
@@ -541,8 +541,8 @@ modules:
             --prefix=${FLATPAK_DEST} markdown --no-build-isolation
         sources:
           - type: file
-            url: https://files.pythonhosted.org/packages/d6/58/79df20de6e67a83f0d0bbfe6c19bb82adf68cdf362885257eb01099f930a/Markdown-3.3.7.tar.gz
-            sha256: cbb516f16218e643d8e0a95b309f77eb118cb138d39a4f27851e6a63581db874
+            url: https://files.pythonhosted.org/packages/85/7e/133e943e97a943d2f1d8bae0c5060f8ac50e6691754eb9dbe036b047a9bb/Markdown-3.4.1.tar.gz
+            sha256: 3b809086bb6efad416156e00a0da66fe47618a5d6918dd688f53f40c8e4cfeff
             x-checker-data:
               type: pypi
               name: markdown
@@ -561,8 +561,8 @@ modules:
                   type: pypi
                   name: importlib-metadata
               - type: file
-                url: https://files.pythonhosted.org/packages/cc/3c/3e8c69cd493297003da83f26ccf1faea5dd7da7892a0a7c965ac3bcba7bf/zipp-3.8.0.tar.gz
-                sha256: 56bf8aadb83c24db6c4b577e13de374ccfb67da2078beba1d037c17980bf43ad
+                url: https://files.pythonhosted.org/packages/3b/e3/fb79a1ea5f3a7e9745f688855d3c673f2ef7921639a380ec76f7d4d83a85/zipp-3.8.1.tar.gz
+                sha256: 05b45f1ee8f807d0cc928485ca40a07cb491cf092ff587c0df9cb1fd154848d2
                 x-checker-data:
                   type: pypi
                   name: zipp
@@ -627,8 +627,8 @@ modules:
             --prefix=${FLATPAK_DEST} pillow --no-build-isolation
         sources:
           - type: file
-            url: https://files.pythonhosted.org/packages/43/6e/59853546226ee6200f9ba6e574d11604b60ad0754d2cbd1c8f3246b70418/Pillow-9.1.1.tar.gz
-            sha256: 7502539939b53d7565f3d11d87c78e7ec900d3c72945d4ee0e2f250d598309a0
+            url: https://files.pythonhosted.org/packages/8c/92/2975b464d9926dc667020ed1abfa6276e68c3571dcb77e43347e15ee9eed/Pillow-9.2.0.tar.gz
+            sha256: 75e636fd3e0fb872693f23ccb8a5ff2cd578801251f3a4f6854c6a5d437d3c04
             x-checker-data:
               type: pypi
               name: pillow
@@ -683,8 +683,8 @@ modules:
             --prefix=${FLATPAK_DEST} py7zr --no-build-isolation
         sources:
           - type: file
-            url: https://files.pythonhosted.org/packages/34/45/8c0b9ff1324ae76f48ba778ded4474e9b3946e35d347dd7ab69b9e2d25f3/py7zr-0.18.9.tar.gz
-            sha256: ac2401d639fb9e5ee1bdb327d62d4fe6717712eec5778601e315bb2981b43441
+            url: https://files.pythonhosted.org/packages/7b/c2/019c00bea5f18f763262f4909baa22ec850baec910565cee5e90884567e1/py7zr-0.20.0.tar.gz
+            sha256: 2270f922f8d07bb8a83d28e1c57dd77570aea6bb876ed8eb4879a038c149ce5e
             x-checker-data:
               type: pypi
               name: py7zr
@@ -707,14 +707,14 @@ modules:
               type: pypi
               name: pycryptodomex
           - type: file
-            url: https://files.pythonhosted.org/packages/02/4b/ce088db11dba92148cde88676fc2f9b00d0c03e6acb96a3ae07ac5e6dc31/pyppmd-0.18.2.tar.gz
-            sha256: 732b28ea25afa41a282c986178b29e60ea5ec2e2b67f66997af943f73d4673e0
+            url: https://files.pythonhosted.org/packages/49/93/e45d3f8d2725ec448b9178b91791c2509d3a9b42d8984a22f576fe2f89be/pyppmd-1.0.0.tar.gz
+            sha256: 075c9bd297e3b0a87dd7aeabca7fee668218acbe69ecc1c6511064558de8840f
             x-checker-data:
               type: pypi
               name: pyppmd
           - type: file
-            url: https://files.pythonhosted.org/packages/d7/7b/ba3957277b8a06fe7dc94cfa2a097f1158556dbd815d192d46aacc93489e/pyzstd-0.15.2.tar.gz
-            sha256: eda9d2874a8f3823eea882125f304620f592693b3af0101c484bfc75726c8c59
+            url: https://files.pythonhosted.org/packages/12/38/2d56ffd3f6e6d0e982ccb9e9fad4dac6626253bbad714aa0d74c66c0eb46/pyzstd-0.15.3.tar.gz
+            sha256: ac4edab5d3955343e8f7f287e62cd2882907d46bcba4b406a1e9f84aa2887472
             x-checker-data:
               type: pypi
               name: pyzstd
@@ -778,8 +778,8 @@ modules:
                     --prefix=${FLATPAK_DEST} cffi --no-build-isolation
                 sources:
                   - type: file
-                    url: https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz
-                    sha256: 920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954
+                    url: https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz
+                    sha256: d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9
                     x-checker-data:
                       type: pypi
                       name: cffi
@@ -853,8 +853,8 @@ modules:
             --prefix=${FLATPAK_DEST} regex --no-build-isolation
         sources:
           - type: file
-            url: https://files.pythonhosted.org/packages/1a/6b/9b6b8284e88105acbcb39e71bd3bfcaffcd36c2601152ae23b00e6e04d91/regex-2022.6.2.tar.gz
-            sha256: f7b43acb2c46fb2cd506965b2d9cf4c5e64c9c612bac26c1187933c7296bf08c
+            url: https://files.pythonhosted.org/packages/c6/5a/e266ef579433b9cbd3e704032bb3ffa66b89ff3f0b0874a8cbaa4d451427/regex-2022.7.25.tar.gz
+            sha256: bd0883e86964cd61360ffc36dbebbc49b928e92a306f886eab02c11dfde5b7aa
             x-checker-data:
               type: pypi
               name: regex
