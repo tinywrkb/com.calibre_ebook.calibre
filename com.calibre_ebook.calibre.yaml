@@ -95,26 +95,59 @@ modules:
         XDG_UTILS_INSTALL_MODE: system
     build-commands:
       - install -dm755 ${FLATPAK_DEST}/share/{applications,desktop-directories,icons/hicolor,mime/packages}
+      - ln -s {calibre-,}translations
+      - bsdtar -xf calibre-src.tar.xz --strip-components=1 'calibre-*/resources/user-agent-data.json'
       - python setup.py build
       - python setup.py gui
-      - python setup.py liberation_fonts --path-to-liberation_fonts /usr/share/fonts/liberation-fonts
-        --system-liberation_fonts
-      - python setup.py mathjax --path-to-mathjax ${FLATPAK_DEST}/share/mathjax --system-mathjax
-      - python setup.py rapydscript
+      - python setup.py iso639
+      - python setup.py iso3166
+      - python setup.py translations
+      - python setup.py resources
+        --path-to-liberation_fonts=/usr/share/fonts/liberation-fonts --system-liberation_fonts
+        --path-to-mathjax ${FLATPAK_DEST}/share/mathjax --system-mathjax
+        --path-to-hyphenation=${FLATPAK_BUILDER_BUILDDIR}/libreoffice-dictionaries
       - python setup.py install --prefix=${FLATPAK_DEST} --system-plugins-location=${FLATPAK_DEST}/share/calibre/system-plugins
       - python -m compileall ${FLATPAK_DEST}/lib/calibre
+      - install -Dm644 resources/user-agent-data.json -t ${FLATPAK_DEST}/share/calibre/
     sources:
-      - type: archive
-        url: https://download.calibre-ebook.com/6.2.1/calibre-6.2.1.tar.xz
-        sha256: eae23824750360d4486aa6275364dd00926b1f363c50404171fcacefbf8f7476
+      - type: git
+        url: https://github.com/kovidgoyal/calibre.git
+       #branch: master
+        commit: ec0e30f0aa5ea52d15e51a04bfc581fe37934ad0
         x-checker-data:
           is-main-source: true
+          type: json
+          url: https://api.github.com/repos/kovidgoyal/calibre/commits?sha=master&per_page=1
+          commit-query: .[].sha
+          version-query: .[].sha[0:8]
+          timestamp-query: .[].commit.committer.date
+      - type: patch
+        path: calibre-sipbuild.patch
+      - type: git
+        url: https://github.com/kovidgoyal/calibre-translations.git
+       #branch: master
+        commit: f10862f6e62b7fcd501963e61dc6c4bcd249bc82
+        dest: calibre-translations
+        x-checker-data:
+          is-main-source: true
+          type: json
+          url: https://api.github.com/repos/kovidgoyal/calibre-translations/commits?sha=master&per_page=1
+          commit-query: .[].sha
+          version-query: .[].sha[0:8]
+          timestamp-query: .[].commit.committer.date
+      - type: archive
+        url: https://github.com/LibreOffice/dictionaries/archive/libreoffice-7.3.4.2.tar.gz
+        sha256: 9c1fa0ab81798db7353bca2eaa537ffa9f7266ee9553e7c142861aabd55ac16d
+        dest: libreoffice-dictionaries
+      - type: file
+        url: https://download.calibre-ebook.com/5.44.0/calibre-5.44.0.tar.xz
+        sha256: 6ffaa3eafd36a24355e5957f0f838db6db6d3456cfa17cb4d139fd94ebaf88ec
+        dest-filename: calibre-src.tar.xz
+        x-checker-data:
           type: html
           url: https://calibre-ebook.com/download_linux
           version-pattern: The latest release of calibre is ((?:\d+\.)?(?:\d+\.)?\d+)
           url-template: https://download.calibre-ebook.com/$version/calibre-$version.tar.xz
-      - type: patch
-        path: calibre-sipbuild.patch
     cleanup:
       - /bin/calibre-uninstall
       - /share/applications/mimeinfo.cache
